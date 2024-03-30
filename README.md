@@ -1,3 +1,3 @@
-## App Ideas
+# App Ideas
 
-# Created using inspo from https://github.com/florinpop17/app-ideas
+## Created using inspo from https://github.com/florinpop17/app-ideas
