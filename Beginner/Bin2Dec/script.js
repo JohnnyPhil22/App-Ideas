@@ -5,18 +5,28 @@ function reverse(text) {
     return reverse(text.slice(1)) + text[0];
 }
 
-let n = prompt("Enter binary number: ");
+const n = input.value;
 let sum = 0;
+let flag = 0;
 let new_n = reverse(n);
 
 for (let i = 0; i < new_n.length; i++) {
     if (new_n[i] !== "0" && new_n[i] !== "1") {
-        console.log("Invalid Input");
+        flag = 1;
         break;
     } else {
         sum += parseInt(new_n[i]) * Math.pow(2, i);
+        flag = 0;
     }
 }
 
-console.log(sum);
 
+document.addEventListener("DOMContentLoaded", function () {
+    convert.addEventListener("click", function () {
+        if (flag == "1") {
+            result.textContent = "Invalid Input";
+        } else {
+            result.textContent = sum;
+        }
+    });
+});
