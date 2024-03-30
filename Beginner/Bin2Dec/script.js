@@ -4,16 +4,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const result = document.getElementById('result');
 
     convert.addEventListener("click", function () {
-        const binary = input.value;
+        const binaryString = input.value.trim();
+
+        if (binaryString === '') {
+            result.textContent = "Please enter a binary number";
+            return;
+        }
+
+        let trimmedBinary = binaryString;
+        if (binaryString.startsWith('0b')) {
+            trimmedBinary = binaryString.slice(2);
+        }
+
         let decimal = 0;
         let isInvalid = false;
+        let power = 0;
 
-        for (let i = 0; i < binary.length; i++) {
-            if (binary[i] !== '0' && binary[i] !== '1') {
+        for (let i = trimmedBinary.length - 1; i >= 0; i--) {
+            if (trimmedBinary[i] !== '0' && trimmedBinary[i] !== '1') {
                 isInvalid = true;
                 break;
             } else {
-                decimal += parseInt(binary[i]) * Math.pow(2, binary.length - 1 - i);
+                decimal += parseInt(trimmedBinary[i]) * Math.pow(2, power);
+                power++;
             }
         }
 
