@@ -1,32 +1,26 @@
-function reverse(text) {
-    if (text.length <= 1) {
-        return text;
-    }
-    return reverse(text.slice(1)) + text[0];
-}
-
-const n = input.value;
-let sum = 0;
-let flag = 0;
-let new_n = reverse(n);
-
-for (let i = 0; i < new_n.length; i++) {
-    if (new_n[i] !== "0" && new_n[i] !== "1") {
-        flag = 1;
-        break;
-    } else {
-        sum += parseInt(new_n[i]) * Math.pow(2, i);
-        flag = 0;
-    }
-}
-
-
 document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById('input');
+    const convert = document.getElementById('convert');
+    const result = document.getElementById('result');
+
     convert.addEventListener("click", function () {
-        if (flag == "1") {
+        const binary = input.value;
+        let decimal = 0;
+        let isInvalid = false;
+
+        for (let i = 0; i < binary.length; i++) {
+            if (binary[i] !== '0' && binary[i] !== '1') {
+                isInvalid = true;
+                break;
+            } else {
+                decimal += parseInt(binary[i]) * Math.pow(2, binary.length - 1 - i);
+            }
+        }
+
+        if (isInvalid) {
             result.textContent = "Invalid Input";
         } else {
-            result.textContent = sum;
+            result.textContent = decimal;
         }
     });
 });
