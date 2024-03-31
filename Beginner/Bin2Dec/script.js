@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     convert.addEventListener("click", convertBinary);
 
-    input.addEventListener("keydown", function (event) {
+    input.addEventListener("keyup", function (event) {
         if (event.key === 'Enter') {
             event.preventDefault();
             convertBinary();
