@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const input = document.getElementById('input');
     const convert = document.getElementById('convert');
     const result = document.getElementById('result');
+    const binaryForm = document.getElementById('binaryForm');
 
     const convertBinary = () => {
         const binaryString = input.value.trim();
@@ -39,10 +40,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     convert.addEventListener("click", convertBinary);
 
-    input.addEventListener("keyup", function (event) {
+    document.addEventListener("keyup", function (event) {
         if (event.key === 'Enter') {
-            event.preventDefault();
             convertBinary();
         }
+    });
+
+    binaryForm.addEventListener("submit", function (event) {
+        event.preventDefault();
     });
 });
