@@ -3,8 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const convert = document.getElementById('convert');
     const result = document.getElementById('result');
 
-    let isInvalid = false;
-    convert.addEventListener("click", function () {
+    const convertBinary = () => {
         const binaryString = input.value.trim();
 
         if (binaryString === '') {
@@ -18,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         let decimal = 0;
+        let isInvalid = false;
         let power = 0;
 
         for (let i = trimmedBinary.length - 1; i >= 0; i--) {
@@ -35,13 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             result.textContent = decimal;
         }
-    });
+    };
 
-    convert.addEventListener('keydown', function (event) {
-        if (isInvalid) {
-            result.textContent = "Invalid Input";
-        } else {
-            result.textContent = decimal;
+    convert.addEventListener("click", convertBinary);
+
+    input.addEventListener("keydown", function (event) {
+        if (event.key === 'Enter') {
+            convertBinary();
         }
     });
 });
