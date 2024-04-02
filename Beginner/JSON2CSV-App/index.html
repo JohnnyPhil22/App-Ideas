@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSON to CSV</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <form id="form">
+        <table>
+            <tr>
+                <td rowspan="2"><textarea rows="15" cols="35" id="input" placeholder="Enter JSON or CSV"></textarea>
+                </td>
+                <td><button type="button" id="csvconvert">Convert to CSV</button></td>
+                <td rowspan="2"><textarea rows="15" cols="35" id="output" readonly=""></textarea></td>
+            </tr>
+            <tr>
+                <td><button type="button" id="jsonconvert">Convert to JSON</button></td>
+            </tr>
+            <tr>
+                <td colspan="3"><button type="button" id="save">Save</button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" id="copy">Copy</button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" id="clear">Clear</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>
